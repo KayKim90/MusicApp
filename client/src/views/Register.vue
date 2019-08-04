@@ -1,7 +1,9 @@
 <template>
 <v-container grid-list-x1 text-center> 
   <v-layout align-center justify-center>
-    <v-form>
+    <v-form
+      name="musicAppForm"
+      autocompelte="off"> 
       <v-flex>
         <div class="pt-10"> 
           <v-list-item three-line>
@@ -23,6 +25,7 @@
             type="password" 
             name="password"
             v-model="password"
+            autocomplete="new-password"
             label="Password" 
             outlined></v-text-field>       
           <v-btn @click="register" depressed block outlined>Register</v-btn>
@@ -46,10 +49,12 @@ export default {
   methods: {
     async register() {
       try {
-        await AuthenticationService.register({
+        const response = await AuthenticationService.register({
           email: this.email,
           password: this.password
         })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error
       }

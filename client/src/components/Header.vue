@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-toolbar flat app>
+    <v-toolbar flat>
       <router-link to="/">
         <v-toolbar-title class="text-upbbercase">
           <span class="font-weight-light">Music</span>
@@ -9,12 +9,14 @@
       </router-link>
       <v-spacer></v-spacer>
       <v-btn 
-        class="mx-2" flat outlined 
+        v-if="!$store.state.isUserLoggedIn"
+        class="mx-2" outlined 
         :to="{ name:'Register', route: '/register'}">
         <span>Signup</span>
       </v-btn>
       <v-btn 
-        class="mx-2" flat outlined
+        v-if="!$store.state.isUserLoggedIn"
+        class="mx-2" outlined
         :to="{ name:'Login', route: '/login'}">
         <span>Login</span>
       </v-btn>
