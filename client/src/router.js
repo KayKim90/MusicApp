@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Main from '@/components/Main'
 import Register from '@/views/Register'
 import Login from '@/views/Login'
+import Songs from '@/views/Songs'
+import CreateSong from '@/views/CreateSong'
+import ViewSong from '@/views/ViewSong'
 
 Vue.use(Router)
 
@@ -12,8 +15,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Main',
+      component: Main
     },
     {
       path: '/register',
@@ -24,6 +27,21 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/songs',
+      name: 'Songs',
+      component: Songs
+    },
+    {
+      path: '/songs/create',
+      name: 'Songs-create',
+      component: CreateSong
+    },
+    {
+      path: '/songs/:songId',
+      name: 'Song',
+      component: ViewSong
     },
     // {
     //   path: '/about',
