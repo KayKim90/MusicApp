@@ -36,19 +36,28 @@ export default {
   data: () => ({
     songs: null
   }),
-  async mounted() {
-    // request to the backend for all songs
-    this.songs = (await SongsService.index()).data
-  },
+  // async mounted() {
+  //   // request to the backend for all songs
+  //   this.songs = (await SongsService.index()).data
+  // },
   methods: {
+  },
+  watch: {
+    '$route.query.search': {
+      immediate: true,
+      async handler (value) {
+        this.songs = (await SongsService.index(value)).data
+      }
+    }
   }
 }
 </script>
 
 <style scoped>
 .song {
-  padding: 10px;
-  height: 330px;
+  padding-top: 10px;
+  /* padding: 10px;
+  height: 330px; */
   overflow: hidden;
 }
 

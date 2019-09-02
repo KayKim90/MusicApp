@@ -3,9 +3,10 @@ import Router from 'vue-router'
 import Main from '@/components/Main'
 import Register from '@/views/Register'
 import Login from '@/views/Login'
-import Songs from '@/views/Songs'
+import Songs from '@/views/Songs/Index'
 import CreateSong from '@/views/CreateSong'
-import ViewSong from '@/views/ViewSong'
+import ViewSong from '@/views/ViewSong/Index'
+import EditSong from '@/views/EditSong'
 
 Vue.use(Router)
 
@@ -43,6 +44,11 @@ export default new Router({
       name: 'Song',
       component: ViewSong
     },
+    {
+      path: '/songs/:songId/edit',
+      name: 'Song-edit',
+      component: EditSong
+    },
     // {
     //   path: '/about',
     //   name: 'about',
@@ -50,6 +56,11 @@ export default new Router({
     //   // this generates a separate chunk (about.[hash].js) for this route
     //   // which is lazy-loaded when the route is visited.
     //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    // }
+    // },
+    {
+      // Default Path (if cannot find page, redirect to following page)
+      path: '*',
+      redirect: 'Main'
+    }
   ]
 })

@@ -26,7 +26,7 @@
             label="Password" 
             outlined></v-text-field>       
           <v-btn @click="login" depressed block outlined>Login</v-btn>
-          <div class="error" v-html="error"></div>
+          <div class="danger-alert" v-html="error"></div>
         </div>
       </v-flex>
     </v-form>
@@ -52,6 +52,9 @@ export default {
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({
+          name: 'Songs'
+        })
       } catch (error) {
         this.error = error.response.data.error
       }

@@ -1,5 +1,5 @@
 <template>
-  <Panel title='Add Song'>
+  <Panel title='Edit Song'>
     <v-text-field 
       name="title"
       v-model="song.title" 
@@ -51,7 +51,7 @@
     <div class="error" v-if="error">{{error}}</div>
     <v-btn
       dark
-      @click="create">Create</v-btn>   
+      @click="save">Save</v-btn>   
   </Panel>
 </template>
 <script>
@@ -75,7 +75,8 @@ export default {
     error: null
   }),
   methods: {
-    async create() {
+    async save() {
+      const songId = this.$store.state.route.params.songId
       this.error = null
       const areAllFieildsFilledIn = Object
         .keys(this.song)
@@ -84,19 +85,31 @@ export default {
         this.error = 'Please enter all required fields'
         return
       }
-      // Call post song API
       try {
-        await SongsService.post(this.song)
+        await SongsService.put(this.song)
         this.$router.push({
-          name: 'Songs'
+          name: 'Song',
+          params: {
+            songId: songId
+          }
         })
       } catch (err) {
         /* eslint-disable no-console */
         console.log(err)
         /* eslint-enable no-console */
-      }    
+      }
     }
-  }
+  },
+  async mounted() {
+    try {
+      const songId = this.$store.state.route.params.songId
+      this.song = (await SongsService.show(songId)).data
+    } catch (err) {
+      /* eslint-disable no-console */
+      console.log(err)
+      /* eslint-enable no-console */
+    }
+  },
 }
 </script>
 <style scoped>
