@@ -1,3 +1,82 @@
 [
-    
+  {
+    "title": "Hello",
+    "artist": "Adele",
+    "genre": "Pop",
+    "album": "25",
+    "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/9/96/Adele_-_25_%28Official_Album_Cover%29.png",
+    "youtubeId": "YQHsXMglC9A",
+    "lyrics": "Hello Lyrics",
+    "tab": "Hello Tab"
+  },
+  {
+    "title": "Grenade",
+    "artist": "Bruno Mars",
+    "genre": "Pop",
+    "album": "Doo-Wops & Hooligans",
+    "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/a/af/Doo-Wops_%26_Hooligans.jpg",
+    "youtubeId": "SR6iYWJxHqs",
+    "lyrics": "Grenade lyrics",
+    "tab": "Grenade tab"
+  },
+  {
+    "title": "Happy",
+    "artist": "Pharrell Williams ",
+    "genre": "Pop",
+    "album": "Happy",
+    "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/2/23/Pharrell_Williams_-_Happy.jpg",
+    "youtubeId": "ZbZSe6N_BXs",
+    "lyrics": "Happy lyrics",
+    "tab": "Happy tab"
+  },
+  {
+    "title": "Shake It Off",
+    "artist": "Taylor Swift ",
+    "genre": "Pop",
+    "album": "1989",
+    "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c4/Taylor_Swift_-_Shake_It_Off.png",
+    "youtubeId": "nfWlot6h_JM",
+    "lyrics": "Shake It Off lyrics",
+    "tab": "Shake It Off tab"
+  },
+  {
+    "title": "Firework",
+    "artist": "Katy Perry",
+    "genre": "Pop",
+    "album": "Teenage Dream",
+    "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/c/ca/Teenage_Dream_album_cover.png",
+    "youtubeId": "QGJuMBdaqIw",
+    "lyrics": "Firework lyrics",
+    "tab": "Firework tab"
+  },
+  {
+    "title": "Wonderwall",
+    "artist": "Oasis",
+    "genre": "Rock",
+    "album": "Morning Glory",
+    "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b1/Oasis_-_%28What%27s_The_Story%29_Morning_Glory_album_cover.jpg",
+    "youtubeId": "6hzrDeceEKc",
+    "lyrics": "Wonderwall lyrics",
+    "tab": "Wonderwall tab"
+  },
+  {
+    "title": "The Tide Is High",
+    "artist": "Atomic Kitten",
+    "genre": "Pop",
+    "album": "Feels So Good",
+    "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/f/ff/Atomickitten-feelssogood.jpg",
+    "youtubeId": "u8CMsQ-p1ls",
+    "lyrics": "The Tide Is High lyrics",
+    "tab": "The Tide Is High tab"
+  },
+  {
+    "title": "Basket case",
+    "artist": "Greenday",
+    "genre": "Rock",
+    "album": "Dookie",
+    "albumImageUrl": "https://vignette.wikia.nocookie.net/greendaysongs/images/d/db/Basket_Case_GREEN_DAY_2.jpg/revision/latest?cb=20090726140820",
+    "youtubeId": "NUTGr5t3MoY",
+    "lyrics": "Do you have the time to listen to me whine\nAbout nothing and everything all at once\nI am one of those\nMelodramatic fools\nNeurotic to the bone\nNo doubt about it\nSometimes I give myself the creeps\nSometimes my mind plays tricks on me\nIt all keeps adding up\nI think I'm cracking up\nAm I just paranoid?\nOr am I just stoned",
+    "tab": "     Do____ you have the time____  to       listen__ to me whine__       a   -\nP.M.\nE|-------------------|-------------------|-----------------|-------------------|\nB|-------------------|-------------------|-----------------|-------------------|\nG|---9---------------|-------------------|-----6-----6-----|-------------------|\nD|---7-9-9-9-9-9-9-9-|-----9-------9-----|-6-6-6-6-6-6---6-|-----6-------6-----|\nA|---7-9-9-9-9-9-9-9-|-9-9-9-9-9-9-9-4-4-|-4-4-4-4-4-4---6-|-6-6-6-6-6-6-6-----|\nE|-----------------7-|-7-7-7-7-7-7-7-----|-------------4-4-|-4-4-4-4-4-4-4-4-5-|\n\n     bout nothing and everything_ all at______ once?\n\nE|-------------------|-------------------|-----------------|-------------------|\nB|-------------------|-------------------|-----------------|-------------------|\nG|-----------------9-|-----9-------9-----|-----------------|-------------------|\nD|-------7-----7-9-9-|-9-9-9-9-9-9-9-----|-----9---------9-|-----9-------9-9---|\nA|---7-7-7-7-7-7-7-7-|-7-7-7-7-7-7-7-0-0-|-9-9-9-9-9-9-9-9-|-9-9-9-9-9-9-9-7---|\nE|---5-5-5-5-5-5-----|-------------------|-7-7-7-7-7-7-7-7-|-7-7-7-7-7-7-7-----|\n"
+  }
 ]

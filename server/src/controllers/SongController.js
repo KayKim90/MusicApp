@@ -3,6 +3,7 @@ const {Song} = require('../models')
 module.exports = {
   async index (req, res) {
     try {
+      console.log("===============================>>> Im here in Song")
       let songs = null
       const search = req.query.search
       const {Op} = require("sequelize")

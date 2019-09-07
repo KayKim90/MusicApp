@@ -24,14 +24,67 @@
         }">
         Edit
       </v-btn>
+      <v-btn
+        v-if="isUserLoggedIn && !bookmark" 
+        @click="setAsBookmark">
+          Bookmark</v-btn>
+      <v-btn 
+        v-if="isUserLoggedIn && bookmark" 
+        @click="unsetAsBookmark">
+          Unbookmark</v-btn>
   </Panel>
 </template>
 
 <script>
+import {mapState} from 'vuex'
+import BookmarksService from '@/services/BookmarksService'
 
 export default {
   props: ['song'],
+  computed:{
+    ...mapState([
+      'isUserLoggedIn'
+    ])
+  },
+  data:() => ({
+    bookmark: null,
+  }),
+  watch: {
+    async song() {
+      if(!this.isUserLoggedIn) {
+        return
+      } 
+      try {
+        this.bookmark = (await BookmarksService.index({
+          songid: this.song.id,
+          userid: this.$store.state.user.id
+        })).data
+        console.log('=============>>>>'+this.song.id)
+        console.log('bookmark: ', this.bookmark)
+      } catch (err) {
+        console.log('index err----------->>> '+err) 
+      }
+    }
+  }, 
   methods: {
+    async setAsBookmark() {
+      try {
+        this.bookmark = (await BookmarksService.post({
+          songid: this.song.id,
+          userid: this.$store.state.user.id
+        })).data
+      } catch(err) {
+        console.log('post err----------->>> '+err)     
+      }
+    },
+    async unsetAsBookmark() {
+      try {
+        await BookmarksService.delete(this.bookmark.id)
+        this.bookmark = null
+      } catch(err) {
+        console.log('delete err----------->>> '+err)     
+      }
+    }
   }
 }
 </script>
