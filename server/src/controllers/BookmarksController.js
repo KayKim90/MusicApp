@@ -1,23 +1,43 @@
-const {Bookmark} = require('../models')
+// working ok const {Bookmark} = require('../models')
+const {
+  Bookmark,
+  Song
+} = require('../models')
+const _ = require('lodash')
 
 module.exports = {
   async index (req, res) {
     try {
       const {songid, userid}  = req.query
       console.log("================================>>> song id(url): "+ JSON.stringify(req.query))
-      const bookmark = await Bookmark.findOne({
-          where: {
-              SongId: songid,
-              UserId: userid
-          }
+      const where = {
+        UserId: userid
+      }
+      if(songid) {
+        where.SongId = songid
+      }
+      const bookmarks = await Bookmark.findAll({
+          where: where,
+          include: [
+            {
+              model: Song
+            }
+          ]
       })
-      res.send(bookmark)
-      // const queryid  = req.query.songid
-      // console.log("================================>>> song id(url): "+ queryid)
+        .map(bookmark => bookmark.toJSON())
+        .map(bookmark => _.extend(
+          {},
+          bookmark.Song,
+          bookmark
+        ))
+      res.send(bookmarks)
+      // Working ok
+      // const {songid, userid}  = req.query
       // console.log("================================>>> song id(url): "+ JSON.stringify(req.query))
       // const bookmark = await Bookmark.findOne({
       //     where: {
-      //         SongId: queryid
+      //         SongId: songid,
+      //         UserId: userid
       //     }
       // })
       // res.send(bookmark)

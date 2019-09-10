@@ -7,6 +7,7 @@ import Songs from '@/views/Songs/Index'
 import CreateSong from '@/views/CreateSong'
 import ViewSong from '@/views/ViewSong/Index'
 import EditSong from '@/views/EditSong'
+import Bookmark from '@/views/Bookmark'
 
 Vue.use(Router)
 
@@ -48,6 +49,11 @@ export default new Router({
       path: '/songs/:songId/edit',
       name: 'Song-edit',
       component: EditSong
+    },
+    {
+      path: '/bookmark',
+      name: 'Bookmark',
+      component: Bookmark
     },
     // {
     //   path: '/about',

@@ -43,7 +43,8 @@ export default {
   props: ['song'],
   computed:{
     ...mapState([
-      'isUserLoggedIn'
+      'isUserLoggedIn',
+      'user'
     ])
   },
   data:() => ({
@@ -55,14 +56,15 @@ export default {
         return
       } 
       try {
-        this.bookmark = (await BookmarksService.index({
+        const bookmarks = (await BookmarksService.index({
           songid: this.song.id,
-          userid: this.$store.state.user.id
+          userid: this.user.id
         })).data
-        console.log('=============>>>>'+this.song.id)
-        console.log('bookmark: ', this.bookmark)
+        if(bookmarks.length) {
+          this.bookmark = bookmarks[0]
+        }
       } catch (err) {
-        console.log('index err----------->>> '+err) 
+        alert('Sorry, we cannot load bookmarks now')
       }
     }
   }, 
@@ -71,18 +73,18 @@ export default {
       try {
         this.bookmark = (await BookmarksService.post({
           songid: this.song.id,
-          userid: this.$store.state.user.id
+          userid: this.user.id
         })).data
       } catch(err) {
-        console.log('post err----------->>> '+err)     
+        alert('Sorry, we cannot set the bookmark now')
       }
     },
     async unsetAsBookmark() {
       try {
         await BookmarksService.delete(this.bookmark.id)
         this.bookmark = null
-      } catch(err) {
-        console.log('delete err----------->>> '+err)     
+      } catch(err) {   
+        alert('Sorry, we cannot unset the bookmark now')
       }
     }
   }

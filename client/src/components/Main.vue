@@ -1,142 +1,149 @@
 <template>
-  <v-container>
-    <v-layout
-      text-center
-      wrap
+<div id="app">
+  <v-carousel
+    cycle
+    height="400"
+    hide-delimiter-background
+    show-arrows-on-hover
+  >
+    <v-carousel-item
+      v-for="(text, i) in texts"
+      :key="i"
     >
-      <v-flex xs12>
-        <v-img
-          :src="require('../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        ></v-img>
-      </v-flex>
-
-      <v-flex mb-4>
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
-        </p>
-      </v-flex>
-
-      <v-flex
-        mb-5
-        xs12
+      <v-sheet
+        :color="colors[i]"
+        height="100%"
       >
-        <h2 class="headline font-weight-bold mb-3">What's next?</h2>
+        <v-row
+          class="fill-height"
+          align="center"
+          justify="center"
+        >
+          <div class="display-3">{{ text }}</div>
+        </v-row>
+      </v-sheet>
+    </v-carousel-item>
+  </v-carousel>
+  
+      <v-divider
+        class="mx-4"
+        :inset="inset"
+        vertical
+      ></v-divider>
 
-        <v-layout justify-center>
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
+  <p class="font-weight-black">Used Technology</p>
+
+  <v-container class="pt-5 pb-10">
+      <v-row>
+        <v-col class="pr-3" cols="12" sm="4">
+          <v-card
+            id="cardClear"
+            class="mx-auto"
+            max-width="300px"
+            elevation="0"
           >
-            {{ next.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-
-      <v-flex
-        xs12
-        mb-5
-      >
-        <h2 class="headline font-weight-bold mb-3">Important Links</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
+            <v-img
+              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+              height="200px"
+            ></v-img>
+            <v-card-title>
+              <div>Vue.js</div>
+              <span class="grey--text subtitle-1">temp temp temp temp temp temp temp</span>
+            </v-card-title>
+          </v-card>
+        </v-col>
+        <v-col class="pr-3" cols="12" sm="4">
+     <v-card
+            id="cardClear"
+            class="mx-auto"
+            max-width="300px"
+            elevation="0"
           >
-            {{ link.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-
-      <v-flex
-        xs12
-        mb-5
-      >
-        <h2 class="headline font-weight-bold mb-3">Ecosystem</h2>
-
-        <v-layout justify-center>
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
+            <v-img
+              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+              height="200px"
+            ></v-img>
+            <v-card-title>
+              <div>Node.js</div>
+              <span class="grey--text subtitle-1">temp temp temp temp temp temp temp</span>
+            </v-card-title>
+          </v-card>
+        </v-col>
+        <v-col class="pr-3" cols="12" sm="4">
+     <v-card
+            id="cardClear"
+            class="mx-auto"
+            max-width="300px"
+            elevation="0"
           >
-            {{ eco.text }}
-          </a>
-        </v-layout>
-      </v-flex>
-    </v-layout>
-  </v-container>
+            <v-img
+              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+              height="200px"
+            ></v-img>
+            <v-card-title>
+              <div>SQLite</div>
+              <span class="grey--text subtitle-1">temp temp temp temp temp temp temp</span>
+            </v-card-title>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+
+  <!-- <v-container class="grey lighten-5">
+      <v-row no-gutters>
+        <v-col
+          v-for="n in 3"
+          :key="n"
+          cols="12"
+          sm="4"
+        >
+          <v-card
+            class="pa-2"
+            outlined
+            tile
+          >
+            One of three columns
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container> -->
+
+  <v-footer>
+    <v-col
+      class="text-center"
+      cols="12"
+    >
+      2019 — <strong>Kay Kyungah Kim</strong> &copy; kim900318@gmail.com 
+    </v-col>
+  </v-footer>
+</div>
 </template>
 
 <script>
-export default {
-  data: () => ({
-    ecosystem: [
-      {
-        text: 'vuetify-loader',
-        href: 'https://github.com/vuetifyjs/vuetify-loader',
-      },
-      {
-        text: 'github',
-        href: 'https://github.com/vuetifyjs/vuetify',
-      },
-      {
-        text: 'awesome-vuetify',
-        href: 'https://github.com/vuetifyjs/awesome-vuetify',
-      },
-    ],
-    importantLinks: [
-      {
-        text: 'Documentation',
-        href: 'https://vuetifyjs.com',
-      },
-      {
-        text: 'Chat',
-        href: 'https://community.vuetifyjs.com',
-      },
-      {
-        text: 'Made with Vuetify',
-        href: 'https://madewithvuejs.com/vuetify',
-      },
-      {
-        text: 'Twitter',
-        href: 'https://twitter.com/vuetifyjs',
-      },
-      {
-        text: 'Articles',
-        href: 'https://medium.com/vuetify',
-      },
-    ],
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com/components/api-explorer',
-      },
-      {
-        text: 'Select a layout',
-        href: 'https://vuetifyjs.com/layout/pre-defined',
-      },
-      {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-      },
-    ],
-  }),
-};
+  export default {
+    data () {
+      return {
+        colors: [
+          'indigo',
+          'warning',
+          'pink darken-2',
+          'red lighten-1',
+          'deep-purple accent-4',
+        ],
+        texts: [
+          'first',
+          'Second',
+          'Third',
+          'Fourth',
+          'Fifth',
+        ],
+      }
+    },
+  }
 </script>
+<style scoped>
+#cardClear {
+  background: transparent;
+  border: transparent;
+}
+</style>
