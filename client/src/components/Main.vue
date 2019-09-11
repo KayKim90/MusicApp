@@ -1,8 +1,26 @@
 <template>
 <div id="app">
-  <v-carousel
-    cycle
-    height="400"
+
+ <v-parallax
+    dark
+    src="../assets/main.jpg"
+    height="600"
+  >
+    <v-row
+     align="center"
+     >
+      <v-col
+        align="center"
+      >
+        <h1 class="display-3 font-weight-thin mb-4">INSPIRED</h1>
+        <h4 class="subheading">It will change the world</h4>
+      </v-col>
+    </v-row>
+  </v-parallax>
+
+
+  <!-- <v-carousel
+    style="height:100%"
     hide-delimiter-background
     show-arrows-on-hover
   >
@@ -23,31 +41,33 @@
         </v-row>
       </v-sheet>
     </v-carousel-item>
-  </v-carousel>
+  </v-carousel> -->
   
+<!--
       <v-divider
         class="mx-4"
         :inset="inset"
         vertical
       ></v-divider>
+-->
 
-  <p class="font-weight-black">Used Technology</p>
-
+   <h1 class="display-2" id="typoIntro">WHY MUSIC STORAGE?</h1>
   <v-container class="pt-5 pb-10">
       <v-row>
         <v-col class="pr-3" cols="12" sm="4">
           <v-card
             id="cardClear"
             class="mx-auto"
-            max-width="300px"
+            max-width="250"
             elevation="0"
           >
             <v-img
-              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-              height="200px"
+              src="../assets/logo1.png"
+              alt="logo 1"
+              height="250"
             ></v-img>
             <v-card-title>
-              <div>Vue.js</div>
+              <div>SHARE EXPERIENCE</div>
               <span class="grey--text subtitle-1">temp temp temp temp temp temp temp</span>
             </v-card-title>
           </v-card>
@@ -56,15 +76,16 @@
      <v-card
             id="cardClear"
             class="mx-auto"
-            max-width="300px"
+            max-width="250px"
             elevation="0"
           >
             <v-img
-              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-              height="200px"
+              src="../assets/logo2.png"
+              alt="logo 2"
+              height="250px"
             ></v-img>
             <v-card-title>
-              <div>Node.js</div>
+              <div>LEARN CREATIVITY</div>
               <span class="grey--text subtitle-1">temp temp temp temp temp temp temp</span>
             </v-card-title>
           </v-card>
@@ -73,15 +94,16 @@
      <v-card
             id="cardClear"
             class="mx-auto"
-            max-width="300px"
+            max-width="250px"
             elevation="0"
           >
             <v-img
-              src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-              height="200px"
+              src="../assets/logo3.png"
+              alt="logo 3"
+              height="250px"
             ></v-img>
             <v-card-title>
-              <div>SQLite</div>
+              <div>BE INSPIRED</div>
               <span class="grey--text subtitle-1">temp temp temp temp temp temp temp</span>
             </v-card-title>
           </v-card>
@@ -89,24 +111,6 @@
       </v-row>
     </v-container>
 
-  <!-- <v-container class="grey lighten-5">
-      <v-row no-gutters>
-        <v-col
-          v-for="n in 3"
-          :key="n"
-          cols="12"
-          sm="4"
-        >
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            One of three columns
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container> -->
 
   <v-footer>
     <v-col
@@ -131,7 +135,7 @@
           'deep-purple accent-4',
         ],
         texts: [
-          'first',
+          'First desc',
           'Second',
           'Third',
           'Fourth',
@@ -145,5 +149,10 @@
 #cardClear {
   background: transparent;
   border: transparent;
+}
+#typoIntro {
+  font-weight: 900;
+  text-align: center;
+  padding-top: 70px;
 }
 </style>
