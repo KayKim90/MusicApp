@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="dark">
     <PageHeader></PageHeader>
     <v-content>
       <router-view/>
@@ -18,6 +18,11 @@ export default {
   data: () => ({
     //
   }),
+  created () {
+    this.$vuetify.theme.light = true
+  },
 };
 </script>
+<style scoped>
+</style>
 

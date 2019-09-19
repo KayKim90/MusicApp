@@ -1,38 +1,74 @@
-<template> 
- <Panel title="Song Metadata">
-    <v-layout align-center>
-      <v-flex xs6>
-        <div class="song-title">{{song.title}}</div>
-        <div class="song-artist">{{song.artist}}</div>
-        <div class="song-genre">{{song.genre}}</div>
-      </v-flex>
-
-      <v-flex xs6>
-        <img class="album-image" :src="song.albumImageUrl" alt="album image" />
-        <br>
-        {{song.album}}
-      </v-flex>
-    </v-layout>
-      <v-btn
-      :to="{
-        name: 'Song-edit', 
-        params () {
-          return {
-            songId: song.id
-          }
-        }
-        }">
-        Edit
-      </v-btn>
-      <v-btn
-        v-if="isUserLoggedIn && !bookmark" 
-        @click="setAsBookmark">
-          Bookmark</v-btn>
-      <v-btn 
-        v-if="isUserLoggedIn && bookmark" 
-        @click="unsetAsBookmark">
-          Unbookmark</v-btn>
-  </Panel>
+<template>
+  <v-card
+    id="infoPsition"
+    width=300
+    height=395
+  >
+   <v-img class="white--text" :src="song.albumImageUrl" alt="album image" height="210">
+      <v-card-title class="align-end fill-height">{{song.album}}
+        <v-spacer></v-spacer>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn 
+              v-if="isUserLoggedIn && !bookmark" 
+              @click="setAsBookmark"
+              icon 
+              v-on="on"
+            >
+              <v-icon color="grey lighten-1">star</v-icon>
+            </v-btn>
+          </template>
+          <span>Set a bookmark</span>
+        </v-tooltip>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn 
+              v-if="isUserLoggedIn && bookmark" 
+              @click="unsetAsBookmark"
+              icon 
+              v-on="on"
+            >
+              <v-icon color="yellow">star</v-icon>
+            </v-btn>
+          </template>
+          <span>Unset a bookmark</span>
+        </v-tooltip>
+      </v-card-title>          
+    </v-img>  
+    <v-card-text class="mt-5">
+      <v-row>
+        <v-col id="colAlign" md="4">
+          <h1 class="overline">Title </h1>
+            {{song.title}}
+        </v-col>
+        <v-col id="colAlign" md="4">
+          <h1 class="overline">Artist </h1>
+            {{song.artist}}
+        </v-col>
+        <v-col id="colAlign"  md="4">
+          <h1 class="overline">Genre </h1>
+            {{song.genre}}         
+        </v-col>
+      </v-row>
+      <v-row justify="center">
+        <v-btn      
+          id="editBtnPadding"  
+          icon
+          v-if="$store.state.isUserLoggedIn"
+          :to="{
+                  name: 'Song-edit', 
+                  params () {
+                    return {
+                      songId: song.id
+                    }
+                  }
+              }"
+         >
+          <v-icon color="grey lighten-1">edit</v-icon>
+        </v-btn> 
+      </v-row>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
@@ -49,6 +85,7 @@ export default {
   },
   data:() => ({
     bookmark: null,
+    show: false,
   }),
   watch: {
     async song() {
@@ -64,6 +101,7 @@ export default {
           this.bookmark = bookmarks[0]
         }
       } catch (err) {
+        console.log(err)
         alert('Sorry, we cannot load bookmarks now')
       }
     }
@@ -87,38 +125,20 @@ export default {
         alert('Sorry, we cannot unset the bookmark now')
       }
     }
-  }
+  },
 }
 </script>
 
 <style scoped>
-.song {
-  padding: 10px;
-  height: 330px;
-  overflow: hidden;
+#colAlign { 
+  text-align: center
 }
-
-.song-title {
-  font-size: 30px;
+#infoPsition {
+  position: fixed;
+  left: 210px;
+  top: 130px;
 }
-
-.song-artist {
-  font-size: 24px;
-}
-.song-genre {
-  font-size: 18px;
-  padding-bottom: 10px;
-}
-
-.album-image {
-  width: 70%;
-}
-textarea {
-  width: 90%;
-  font-family: monospace;
-  border: none;
-  border-style: none;
-  overflow: auto;
-  padding: 20px;
+#editBtnPadding{
+  margin-top: 10px;
 }
 </style>

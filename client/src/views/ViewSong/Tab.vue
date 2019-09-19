@@ -1,7 +1,11 @@
 <template> 
- <Panel title="Tab">
-    <textarea readonly v-model="song.tab"></textarea>
-  </Panel>
+  <v-card
+    id="tabPosition"
+    width="550"
+  >
+    <v-card-title>Tab</v-card-title>
+    <v-card-text><pre><h5 class="overline">{{song.tab}}</h5></pre></v-card-text>
+  </v-card>
 </template>
 
 <script>
@@ -23,5 +27,15 @@ textarea {
   border-style: none;
   overflow: auto;
   padding: 20px;
+}
+#tabPosition {
+  position: static;
+  z-index: 0;
+  margin-left: 440px;
+}
+.song pre {
+  white-space: pre-wrap; 
+  word-wrap: break-word;
+  font-family: inherit;
 }
 </style>

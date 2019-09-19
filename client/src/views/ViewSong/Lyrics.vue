@@ -1,7 +1,11 @@
 <template> 
- <Panel title="Lyrics">
-    <textarea readonly v-model="song.lyrics"></textarea>
-  </Panel>
+  <v-card
+    id="lyricsPosition"
+    width="550"
+  >
+    <v-card-title>Lyrics</v-card-title>
+    <v-card-text><pre><h2 class="caption">{{song.lyrics}}</h2> </pre></v-card-text>
+  </v-card>
 </template>
 
 <script>
@@ -24,5 +28,16 @@ textarea {
   border-style: none;
   overflow: auto;
   padding: 20px;
+}
+#lyricsPosition {
+  position: static;
+  z-index: 0;
+  margin-left: 440px;
+  margin-bottom:1em;
+}
+.song pre {
+  white-space: pre-wrap; 
+  word-wrap: break-word;
+  font-family: inherit;
 }
 </style>

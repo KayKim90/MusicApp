@@ -5,7 +5,7 @@
       name="musicAppForm"
       autocompelte="off"> 
       <v-flex>
-        <div class="pt-10"> 
+        <div class="pt-6"> 
           <v-list-item three-line>
             <v-list-item-content>
               <div class="overline mb-4">REGISTER</div>
@@ -14,7 +14,7 @@
             </v-list-item-content>
           </v-list-item>
         </div>
-        <div class="pl-4 pr-4 pt-4 pb-2">
+        <div class="pl-4 pr-4 pt-6 pb-2">
           <v-text-field 
             type="email"
             name="email"
@@ -29,11 +29,14 @@
             label="Password" 
             outlined></v-text-field>       
           <v-btn @click="register" depressed block outlined>Register</v-btn>
-          <div class="danger-alert" v-html="error"></div>
+          <!-- <div class="error" v-html="error"></div> -->
         </div>
       </v-flex>
     </v-form>
   </v-layout> 
+  <div v-if="error">
+    <h1 class="error caption" v-html="error"></h1>
+  </div>
 </v-container>
 </template>
 
@@ -68,12 +71,11 @@ export default {
 
 <style scoped>
 .error {
-  padding-top: 15px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: purple;
-  background-color: transparent;
+  color: red;
 }
 .v-application .error {
-    background-color: #ff525205 !important;
+  padding-top: 15px;
+  background-color: #ff525200 !important;
+  /* !important means Top priority */
 }
 </style>

@@ -3,7 +3,7 @@
   <v-layout align-center justify-center>
     <v-form>
       <v-flex>
-        <div class="pt-10"> 
+        <div class="pt-6"> 
           <v-list-item three-line>
             <v-list-item-content>
               <div class="overline mb-4">Login</div>
@@ -12,7 +12,12 @@
             </v-list-item-content>
           </v-list-item>
         </div>
-        <div class="pl-4 pr-4 pt-4 pb-2">
+
+        <div v-if="error">
+          <h1 class="error overline" v-html="error"></h1>
+        </div>
+        
+        <div class="pl-4 pr-4 pt-6 pb-2">
           <v-text-field 
             type="email"
             name="email"
@@ -26,7 +31,6 @@
             label="Password" 
             outlined></v-text-field>       
           <v-btn @click="login" depressed block outlined>Login</v-btn>
-          <div class="danger-alert" v-html="error"></div>
         </div>
       </v-flex>
     </v-form>
@@ -65,12 +69,11 @@ export default {
 
 <style scoped>
 .error {
-  padding-top: 15px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: purple;
-  background-color: transparent;
+  color: white;
 }
 .v-application .error {
-    background-color: #ff525205 !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: orange !important;
 }
 </style>

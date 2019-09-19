@@ -1,13 +1,24 @@
 <template> 
- <Panel title="Youtube Video">
-    <v-layout align-center>
-       <v-flex xs6>
-         <youtube :video-id="youtubeId"
-         :player-width="300" 
-         :player-heigt="300" />
-      </v-flex>
-    </v-layout>
-  </Panel>
+  <v-card
+    width="550"
+    id="videoPosition"
+  >
+    <v-card-title>Video</v-card-title>
+    <v-card-text align="center">  
+      <youtube 
+        :video-id="youtubeId"
+        :player-vars="{ controls: 0, loop:1 }"  
+        :player-width="500"
+        :player-height="320" />
+    </v-card-text>
+  </v-card>
+<!-- <v-layout>
+  <youtube 
+    id="videoPosition"
+    :video-id="youtubeId"
+    :player-vars="{ controls: 0, loop:1 }"  
+    :player-width="500" />
+</v-layout> -->
 </template>
 
 <script>
@@ -25,33 +36,11 @@ export default {
 </script>
 
 <style scoped>
-.song {
-  padding: 10px;
-  height: 330px;
-  overflow: hidden;
-}
-
-.song-title {
-  font-size: 30px;
-}
-
-.song-artist {
-  font-size: 24px;
-}
-.song-genre {
-  font-size: 18px;
-  padding-bottom: 10px;
-}
-
-.album-image {
-  width: 70%;
-}
-textarea {
-  width: 90%;
-  font-family: monospace;
-  border: none;
-  border-style: none;
-  overflow: auto;
-  padding: 20px;
+#videoPosition {
+  margin-top:130px;
+  position: static;
+  z-index: 0;
+  margin-left: 440px;
+  margin-bottom:1em;
 }
 </style>

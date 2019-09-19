@@ -1,10 +1,17 @@
 <template>
-  <Panel title="Search">
-    <v-text-field 
-      label="Search"
-      v-model="search">
-    </v-text-field>
-  </Panel>
+   <v-container class="pt-10 mt-10">
+    <v-layout justify-center>
+      <v-flex xs12 sm8 md8 lg6>
+          <v-text-field
+            v-model="search"
+            label="Search by title, artist, album or genre"
+            hide-details
+            prepend-icon="search"
+            single-line
+          ></v-text-field>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 <script>
 import _ from 'lodash'

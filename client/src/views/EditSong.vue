@@ -1,6 +1,8 @@
 <template>
+ <v-app>
   <Panel title='Edit Song'>
     <v-text-field 
+      class="pt-5"
       name="title"
       v-model="song.title" 
       label="Title"
@@ -53,6 +55,7 @@
       dark
       @click="save">Save</v-btn>   
   </Panel>
+ </v-app>
 </template>
 <script>
 import SongsService from '@/services/SongsService'

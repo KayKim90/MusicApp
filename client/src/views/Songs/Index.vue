@@ -2,7 +2,7 @@
   <v-layout column>
    <Songs-search-panel />
    <Songs-panel class="mt-2" />
-  </v-layout>
+  </v-layout> 
 </template>
 
 <script>

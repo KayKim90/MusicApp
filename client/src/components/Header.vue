@@ -3,7 +3,7 @@
     <!-- <v-toolbar class="mx-auto overflow-hidden" flat> -->
     <!-- <v-toolbar app> -->
       <!-- <v-app-bar class="pl-5 transparent" flat fixed> -->
-      <v-app-bar class="pl-5" flat>
+      <v-app-bar class="pl-5" flat fixed>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
          <router-link to="/">
            <v-toolbar-title class="text-upbbercase pl-3">
